@@ -9,17 +9,15 @@ using System;
 using System.Text;
 using HoloToolkit.Unity.SpatialMapping;
 
+[RequireComponent(typeof(YomeControler))]
 public class ConversationManager : Singleton<ConversationManager> {
     [SerializeField]
     public Text answerTextField;
     public Text inputTextField;
     public Image XPic;
     public Image MicPic;
-    private Color MicPicStopColor = Color.gray;
-    private Color MicPicRunningColor = Color.green;
-    private Color MicPicErrorColor = Color.red;
     public TextToSpeechManager textToSpeech;
-    public DictationRecognizer m_DictationRecognizer;
+    DictationRecognizer m_DictationRecognizer;
     public GameObject Speeker;
     private string URL = "https://api.api.ai/v1/query?v=20150910";
     string str1 = "{\"query\":\"";
@@ -30,13 +28,6 @@ public class ConversationManager : Singleton<ConversationManager> {
     string AnalyzeSentimentstr1 = "{\"document\":{\"type\":\"PLAIN_TEXT\",\"language\":\"en\",\"content\":\"";
     string AnalyzeSentimentstr2 = "\"},\"encodingType\":\"UTF8\"}";
     private const float RayCastLength = 10.0f;
-    public YomeControler yomeControler;
-    public Material MeshMaterial;
-    public Material NonMeshMaterial;
-
-
-
-
 
     // Use this for initialization
     void Start () {
@@ -84,18 +75,8 @@ public class ConversationManager : Singleton<ConversationManager> {
 
         if (respose.result.metadata.intentName.Equals(FollowMe_intent))
         {
-            yomeControler.ComeHere();
+            YomeControler.Instance.ComeHere();
         }
-
-        if (respose.result.metadata.intentName.Equals(MeshOn_intent))
-        {
-            SpatialMappingManager.Instance.SetSurfaceMaterial(MeshMaterial);
-        }
-        if (respose.result.metadata.intentName.Equals(MeshOff_intent))
-        {
-            SpatialMappingManager.Instance.SetSurfaceMaterial(NonMeshMaterial);
-        }
-
 
     }
 
@@ -120,7 +101,7 @@ public class ConversationManager : Singleton<ConversationManager> {
                         XPic.gameObject.SetActive(true);
                     }
                     
-                    MicPic.color = MicPicStopColor;
+
                 }
 
             
@@ -131,12 +112,9 @@ public class ConversationManager : Singleton<ConversationManager> {
             {
                 XPic.gameObject.SetActive(false);
             }
-            MicPic.color = MicPicRunningColor;
+
         }
-        else
-        {
-            MicPic.color = MicPicErrorColor;
-        }
+
 
     }
 
