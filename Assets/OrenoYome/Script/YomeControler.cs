@@ -18,13 +18,12 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
     // Consts
     const float RayCastLength = 10.0f;
 
-    NavMeshAgent agent;
+
+    public NavMeshAgent agent;
 
      // Use this for initialization
     void Start () {
         Yome.SetActive(false);
-
-        agent = Yome.GetComponent<NavMeshAgent>();
         StartCoroutine(loop());
     }
 
@@ -46,7 +45,7 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
             if (!Yome.activeSelf)
             {
                 Yome.SetActive(true);
-                ConversationManager.Instance.Initialize();
+                
                 hitPos = hitInfo.point;
                 hitNormal = hitInfo.normal;
                 Yome.transform.position = hitPos;
@@ -54,7 +53,7 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
                 heading.y = 0;
                 Yome.transform.rotation = Quaternion.LookRotation(heading);
                 Yome.transform.rotation = Yome.transform.rotation * Quaternion.Euler(0, 180, 0);
-
+                ConversationManager.Instance.Initialize();
             }
                  //agent.destination = hitInfo.point;
         }
@@ -79,16 +78,6 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
                 //lookAtIK.enabled = true;
             }
 
-
-
-             if (agent.velocity.sqrMagnitude == 0 && YomeFocusAction.isYomeGazed)
-             {
-                Vector3 heading = Yome.transform.position - Camera.main.transform.position;
-                heading.y = 0;
-                Yome.transform.rotation = Quaternion.LookRotation(heading);
-                Yome.transform.rotation = Yome.transform.rotation * Quaternion.Euler(0, 180, 0);
-                //lookAtIK.enabled = true;
-              }
         }
     }
 
