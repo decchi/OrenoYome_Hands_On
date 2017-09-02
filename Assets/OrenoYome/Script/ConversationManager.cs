@@ -9,7 +9,7 @@ using System;
 using System.Text;
 using HoloToolkit.Unity.SpatialMapping;
 
-public class DictationManager : Singleton<DictationManager> {
+public class ConversationManager : Singleton<ConversationManager> {
     [SerializeField]
     public Text answerTextField;
     public Text inputTextField;
