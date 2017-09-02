@@ -22,11 +22,7 @@ public class ConversationManager : Singleton<ConversationManager> {
     private string URL = "https://api.api.ai/v1/query?v=20150910";
     string str1 = "{\"query\":\"";
     string str2 = "\",\"lang\":\"en\",\"sessionId\":\"123456789\"}";
-    private string MeshOn_intent = "MeshOn";
-    private string MeshOff_intent = "MeshOff";
     private string FollowMe_intent = "ComeHere";
-    string AnalyzeSentimentstr1 = "{\"document\":{\"type\":\"PLAIN_TEXT\",\"language\":\"en\",\"content\":\"";
-    string AnalyzeSentimentstr2 = "\"},\"encodingType\":\"UTF8\"}";
     private const float RayCastLength = 10.0f;
 
     // Use this for initialization
