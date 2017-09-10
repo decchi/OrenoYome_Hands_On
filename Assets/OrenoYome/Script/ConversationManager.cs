@@ -81,35 +81,41 @@ public class ConversationManager : Singleton<ConversationManager> {
     // Update is called once per frame
     void Update () {
 
-        if (m_DictationRecognizer.Status == SpeechSystemStatus.Stopped)
+        if (m_DictationRecognizer != null)
         {
-            
-              
+            if (m_DictationRecognizer.Status == SpeechSystemStatus.Stopped)
+            {
+
+
                 if (YomeFocusAction.isYomeGazed)
                 {
                     m_DictationRecognizer.Start();
                     XPic.gameObject.SetActive(false);
                 }
-                else {
+                else
+                {
 
                     if (!XPic.IsActive())
                     {
                         XPic.gameObject.SetActive(true);
                     }
-                    
+
 
                 }
 
-            
-        }
-        else if (m_DictationRecognizer.Status == SpeechSystemStatus.Running)
-        {
-            if (XPic.IsActive())
-            {
-                XPic.gameObject.SetActive(false);
-            }
 
+            }
+            else if (m_DictationRecognizer.Status == SpeechSystemStatus.Running)
+            {
+                if (XPic.IsActive())
+                {
+                    XPic.gameObject.SetActive(false);
+                }
+
+            }
         }
+
+
 
 
     }

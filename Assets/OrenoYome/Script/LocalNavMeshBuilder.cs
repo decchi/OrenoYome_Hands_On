@@ -33,7 +33,7 @@ public class LocalNavMeshBuilder : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log(" OnEnable()");
+        
         // Construct and add navmesh
         m_NavMesh = new NavMeshData();
         m_Instance = NavMesh.AddNavMeshData(m_NavMesh);
@@ -48,7 +48,7 @@ public class LocalNavMeshBuilder : MonoBehaviour
 
     void OnDisable()
     {
-        Debug.Log(" OnDisable()");
+        
         // Unload navmesh and clear handle
         m_Instance.Remove();
     }
@@ -63,13 +63,11 @@ public class LocalNavMeshBuilder : MonoBehaviour
         if (asyncUpdate)
         {
             m_Operation = NavMeshBuilder.UpdateNavMeshDataAsync(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
-            Debug.Log("count A =" + m_Sources.Count);//mori kesu kottigaippai yobareru
+            
         }
         else
         {
             NavMeshBuilder.UpdateNavMeshData(m_NavMesh, defaultBuildSettings, m_Sources, bounds);
-
-            Debug.Log("count B ="+m_Sources.Count);//mori kesu
         }
     }
 
