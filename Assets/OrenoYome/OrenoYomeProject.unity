@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 1573043479}
   - component: {fileID: 1573043480}
   - component: {fileID: 1573043481}
+  - component: {fileID: 1573043482}
   m_Layer: 0
   m_Name: Singleton
   m_TagString: Untagged
@@ -499,6 +500,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82aa5cb7a870de440baadff9083be41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1573043482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1573043476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6ad2c451dec03408ce131e83ac25f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Tracked: {fileID: 0}
+  m_Size: {x: 80, y: 20, z: 80}
+--- !u!4 &1680629411 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000010560871102, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1924744104}
 --- !u!137 &1816980430 stripped
 SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 13700024, guid: 412b92d4feeb9c548bfa98f62c4d1022,
@@ -517,11 +536,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.085
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.597
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalRotation.x
@@ -529,7 +548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalRotation.z
@@ -537,7 +556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_RootOrder
@@ -574,6 +593,14 @@ Prefab:
     - target: {fileID: 13700024, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_BlendShapeWeights.Array.data[4]
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_CullingMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400002, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
@@ -612,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skinnedMeshRenderer: {fileID: 1816980430}
-  VisemeToBlendTargets: 000000000000000000000000000000000000000000000000000000000000000000000000000000000600000009000000070000000a00000008000000
+  VisemeToBlendTargets: 000000000000000000000000000000000000000000000000000000000000000008000000000000000600000009000000070000000a00000008000000
   enableVisemeSignals: 0
   KeySendVisemeSignal: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   SmoothAmount: 100
@@ -760,6 +787,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1890814572}
   voice: 3
+--- !u!114 &1890814576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890814567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7aaad70d82e66748ba98b19c9306fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAtObj: {fileID: 1680629411}
+  lookAtWeight: 1
+  bodyWeight: 0.4
+  headWeight: 1
+  eyesWeight: 0
+  clampWeight: 0.4
 --- !u!1001 &1924744104
 Prefab:
   m_ObjectHideFlags: 0
@@ -798,6 +842,11 @@ Prefab:
     - target: {fileID: 4000010560871102, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000013304850028, guid: d379ed0a5618c9f479f58bd83a2d0ad3,
+        type: 2}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d379ed0a5618c9f479f58bd83a2d0ad3, type: 2}

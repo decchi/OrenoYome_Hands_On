@@ -20,22 +20,26 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
 
 
     NavMeshAgent agent;
-
-     // Use this for initialization
+    Animator animator;
+    // Use this for initialization
     void Start () {
+
         Yome.SetActive(false);
         StartCoroutine(loop());
         if (Yome.GetComponent<NavMeshAgent>() != null )
         {
             agent = Yome.GetComponent<NavMeshAgent>();
         }
+        animator = Yome.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update () {
-
+        animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
 
     }
+
 
     //AirTapされたときに呼び出される関数
     public void OnInputClicked(InputClickedEventData eventData)
