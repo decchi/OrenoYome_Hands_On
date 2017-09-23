@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 1573043477}
   - component: {fileID: 1573043479}
   - component: {fileID: 1573043480}
+  - component: {fileID: 1573043481}
   m_Layer: 0
   m_Name: Singleton
   m_TagString: Untagged
@@ -487,6 +488,17 @@ MonoBehaviour:
   MicPic: {fileID: 1262016961}
   textToSpeech: {fileID: 1890814575}
   Speeker: {fileID: 1890814567}
+--- !u!114 &1573043481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1573043476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82aa5cb7a870de440baadff9083be41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &1816980430 stripped
 SkinnedMeshRenderer:
   m_PrefabParentObject: {fileID: 13700024, guid: 412b92d4feeb9c548bfa98f62c4d1022,
@@ -551,6 +563,18 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 04b9b1d9f0dfe1247b3b1a83e9c8230f, type: 2}
+    - target: {fileID: 13700024, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700024, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_BlendShapeWeights.Array.data[3]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700024, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400002, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
     - {fileID: 11400000, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
@@ -606,7 +630,7 @@ MonoBehaviour:
   audioSource: {fileID: 1890814572}
   provider: 0
   gain: 1
-  audioMute: 1
+  audioMute: 0
   loopback: 108
   debugVisemes: 100
   showVisemes: 0
