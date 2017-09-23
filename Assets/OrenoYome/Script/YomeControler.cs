@@ -19,12 +19,16 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
     const float RayCastLength = 10.0f;
 
 
-    public NavMeshAgent agent;
+    NavMeshAgent agent;
 
      // Use this for initialization
     void Start () {
         Yome.SetActive(false);
         StartCoroutine(loop());
+        if (Yome.GetComponent<NavMeshAgent>() != null )
+        {
+            agent = Yome.GetComponent<NavMeshAgent>();
+        }
     }
 
     // Update is called once per frame
