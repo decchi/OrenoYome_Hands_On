@@ -33,7 +33,6 @@ public class ConversationManager : Singleton<ConversationManager> {
     public void Initialize()
     {
 
-        textToSpeech = Speeker.GetComponent<TextToSpeechManager>();
         m_DictationRecognizer = new DictationRecognizer();
 
         m_DictationRecognizer.DictationResult += (text, confidence) =>
@@ -57,7 +56,7 @@ public class ConversationManager : Singleton<ConversationManager> {
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Authorization", "Bearer your agent ");
+        request.SetRequestHeader("Authorization", "Bearer 6e69b55263ca4831aec888e3a1c97a4b");
 
 
         yield return request.Send();
