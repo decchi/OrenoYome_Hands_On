@@ -80,7 +80,7 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
             }
         }
 
-    }
+    
     }
 
     public void ComeHere()
