@@ -6,6 +6,7 @@ using NavMeshBuilder = UnityEngine.AI.NavMeshBuilder;
 using System;
 
 // Build and update a localized navmesh from the sources marked by NavMeshSourceTag
+// Original is https://github.com/Unity-Technologies/NavMeshComponents/blob/master/Assets/Examples/Scripts/LocalNavMeshBuilder.cs
 [DefaultExecutionOrder(-102)]
 public class LocalNavMeshBuilder : MonoBehaviour
 {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 // Tagging component for use with the LocalNavMeshBuilder
 // Supports mesh-filter and terrain - can be extended to physics and/or primitives
+// Original is https://github.com/Unity-Technologies/NavMeshComponents/blob/master/Assets/Examples/Scripts/NavMeshSourceTag.cs
 [DefaultExecutionOrder(-200)]
 public class NavMeshSourceTag : MonoBehaviour
 {
