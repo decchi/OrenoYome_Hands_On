@@ -32,18 +32,8 @@ public class ConversationManager : Singleton<ConversationManager> {
 
     public void Initialize()
     {
+        //Step1 音声認識の実装
 
-        m_DictationRecognizer = new DictationRecognizer();
-
-        m_DictationRecognizer.DictationResult += (text, confidence) =>
-        {
-
-            inputTextField.text = text;
-            StartCoroutine(GetReply(URL, str1 + text + str2));
-
-
-        };
-        m_DictationRecognizer.Start();
         XPic.gameObject.SetActive(false);
     }
 
@@ -56,7 +46,9 @@ public class ConversationManager : Singleton<ConversationManager> {
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
-        request.SetRequestHeader("Authorization", "Bearer 6e69b55263ca4831aec888e3a1c97a4b");
+
+        //Step2 対話エージェントの設定
+        request.SetRequestHeader("Authorization", "Bearer (set key here)");
 
 
         yield return request.Send();
@@ -66,7 +58,9 @@ public class ConversationManager : Singleton<ConversationManager> {
         ApiaiJson respose = JsonUtility.FromJson<ApiaiJson>(request.downloadHandler.text);
 
         answerTextField.text = respose.result.fulfillment.speech;
-        textToSpeech.SpeakText(respose.result.fulfillment.speech.Replace("."," "));
+
+        //Step3 音声合成の実装
+        
 
         if (respose.result.metadata.intentName.Equals(FollowMe_intent))
         {
