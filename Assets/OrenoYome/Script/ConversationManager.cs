@@ -37,12 +37,11 @@ public class ConversationManager : Singleton<ConversationManager> {
         XPic.gameObject.SetActive(false);
     }
 
-    IEnumerator GetReply(string url, string bodyJsonString)
+    IEnumerator GetReply(string text)
     {
 
-        var request = new UnityWebRequest(url, "POST");
-
-        byte[] bodyRaw = Encoding.UTF8.GetBytes(bodyJsonString);
+        var request = new UnityWebRequest(URL, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(str1 + text + str2);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
