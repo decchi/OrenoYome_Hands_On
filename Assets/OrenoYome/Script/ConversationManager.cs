@@ -70,7 +70,9 @@ public class ConversationManager : Singleton<ConversationManager> {
 
         if (respose.result.metadata.intentName.Equals(FollowMe_intent))
         {
-            YomeControler.Instance.ComeHere();
+            answerTextField.text = "ComeHere OK";
+
+              YomeControler.Instance.ComeHere();
         }
 
     }

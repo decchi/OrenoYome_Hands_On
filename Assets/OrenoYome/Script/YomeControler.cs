@@ -18,7 +18,7 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
     // Consts
     const float RayCastLength = 10.0f;
 
-
+    Animator animator;
     NavMeshAgent agent;
 
     // Use this for initialization
@@ -30,12 +30,13 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
         {
             agent = Yome.GetComponent<NavMeshAgent>();
         }
+        animator = Yome.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
 
     }
 
@@ -61,7 +62,7 @@ public class YomeControler : Singleton<YomeControler>, IInputClickHandler
                 Yome.transform.rotation = Yome.transform.rotation * Quaternion.Euler(0, 180, 0);
                 ConversationManager.Instance.Initialize();
             }
-
+            
         }
 
     }
