@@ -159,7 +159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Your Words
+  m_Text: Yome Words
 --- !u!222 &222194323576296996
 CanvasRenderer:
   m_ObjectHideFlags: 1
